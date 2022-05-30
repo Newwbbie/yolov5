@@ -1,0 +1,6 @@
+train: /home/featurize/data/fiber/images/train # train images (relative to 'path') 128 images
+val: /home/featurize/data/fiber/images/train # val images (relative to 'path') 128 images
+
+# Classes
+nc: 7 # number of classes
+names: ['空闲有盖', '空闲无盖', '占用', '乱', '不乱', '损坏', '光交未打开'] # class names
