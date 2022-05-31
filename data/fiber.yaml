@@ -1,5 +1,5 @@
-train: /home/featurize/data/fiber/images/train # train images (relative to 'path') 128 images
-val: /home/featurize/data/fiber/images/val # val images (relative to 'path') 128 images
+train: /root/autodl-tmp/fiber-all/images/train # train images (relative to 'path') 128 images
+val: /root/autodl-tmp/fiber-all/images/val # val images (relative to 'path') 128 images
 
 # Classes
 nc: 7 # number of classes
