@@ -416,9 +416,8 @@ def check_file(file, suffix=''):
     # Search/download file (if necessary) and return path
     check_suffix(file, suffix)  # optional
     file = str(file)  # convert to str()
-    if Path(file).is_file() or not file:  # exists
-        return file
-    elif file.startswith(('http:/', 'https:/')):  # download
+    
+    if file.startswith(('http:/', 'https:/')):  # download
         url = file  # warning: Pathlib turns :// -> :/
         file = Path(urllib.parse.unquote(file).split('?')[0]).name  # '%2F' to '/', split https://url.com/file.txt?auth
         if Path(file).is_file():
@@ -427,6 +426,8 @@ def check_file(file, suffix=''):
             LOGGER.info(f'Downloading {url} to {file}...')
             torch.hub.download_url_to_file(url, file)
             assert Path(file).exists() and Path(file).stat().st_size > 0, f'File download failed: {url}'  # check
+        return file
+    elif Path(file).is_file() or not file:  # exists
         return file
     else:  # search
         files = []
