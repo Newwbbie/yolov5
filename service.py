@@ -40,7 +40,6 @@ def detect():
                     print(f'下载 {url} 到 {file_path}...')
                     torch.hub.download_url_to_file(url, file_path)
                     assert Path(file_path).exists() and Path(file_path).stat().st_size > 0, f'下载失败: {url}'  # check
-                # url.save(file_path)
         res = run(
             weights='runs/train/5x-fiberall-120-720/weights/best.pt',
             source=f'data/serviceImg/{user_id}/',  # file/dir/URL/glob, 0 for webcam
